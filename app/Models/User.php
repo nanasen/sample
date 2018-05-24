@@ -42,9 +42,23 @@ class User extends Authenticatable
             $user->activation_token = str_random(30);
         });
     }
+    //一个用户多条动态
+    public function statuses()
+    {
+        return $this->hasMany(Status::class);
+    }
+
     //调用重置密码消息通知
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPassword($token));
     }
+
+
+    public function feed()
+    {
+        return $this->statuses()
+                    ->orderBy('created_at', 'desc');
+    }
+
 }
