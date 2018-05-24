@@ -7,12 +7,15 @@
         <section class="status_form">
           @include('shared._status_form')
         </section>
-        <h3>动态列表</h3>
+        <h3>微博列表</h3>
         @include('shared._feed')
       </div>
       <aside class="col-md-4">
         <section class="user_info">
           @include('shared._user_info', ['user' => Auth::user()])
+        </section>
+        <section class="stats">
+          @include('shared._stats', ['user' => Auth::user()])
         </section>
       </aside>
     </div>
@@ -20,7 +23,7 @@
     <div class="jumbotron">
       <h1>Hello Laravel</h1>
       <p class="lead">
-        你现在所看到的是 <a href="/">Laravel MicroBlog</a> 的示例项目主页。
+        你现在所看到的是 <a href="">Laravel MicroBlog</a> 的项目示例主页。
       </p>
       <p>
         一切，将从这里开始。
